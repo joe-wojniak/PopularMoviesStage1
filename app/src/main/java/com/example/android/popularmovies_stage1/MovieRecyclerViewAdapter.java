@@ -6,13 +6,16 @@ https://www.codingdemos.com/android-gridlayout-example-recyclerview/
 */
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.android.popularmovies_stage1.model.Movie;
+import com.example.android.popularmovies_stage1.utils.MovieListService;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -21,6 +24,7 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
 
     Context mContext;
     List<Movie> mMovieList;
+    String posterPath;
 
     private static final String TAG = MovieRecyclerViewAdapter.class.getSimpleName();
 
@@ -38,11 +42,27 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
 
     @Override
     public void onBindViewHolder(final MovieViewHolder holder, int position) {
-        Movie m = mMovieList.get(position);
+        final Movie m = mMovieList.get(position);
 
-            Picasso.with(mContext)
-                    .load(m.getPosterPath())
-                    .into(holder.posterImage);
+        Log.d(TAG,"Posterpath: "+m.getPosterPath());
+        posterPath = MovieListService.buildPosterURL("w185", m.getPosterPath());
+
+        Picasso.with(mContext)
+                .load(posterPath)
+                .into(holder.posterImage);
+
+        holder.posterImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(mContext, DetailActivity.class);
+                mIntent.putExtra("movieTitle", m.getTitle());
+                mIntent.putExtra("movieReleaseDate", m.getRelease_date());
+                mIntent.putExtra("movieVoteAverage", m.getVoteAverage());
+                mIntent.putExtra("movieOverview", m.getOverview());
+                mIntent.putExtra("moviePosterPath", m.getPosterPath());
+                mContext.startActivity(mIntent);
+            }
+        });
     }
 
     @Override
@@ -55,7 +75,7 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
 
         public MovieViewHolder(View itemView) {
             super(itemView);
-            posterImage = itemView.findViewById(R.id.image);
+            posterImage = itemView.findViewById(R.id.rvItemImage);
         }
     }
 }

@@ -29,10 +29,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    //TODO: Choose version of Picasso to use- 2.5.2 or 2.71828
     implementation 'com.squareup.picasso:picasso:2.5.2'
-    //implementation 'com.squareup.picasso:picasso:2.71828'  // newer version of Picasso
-    //TODO: Add dependency for recyclerview
     implementation 'com.android.support:recyclerview-v7:28.0.0'
 }
 

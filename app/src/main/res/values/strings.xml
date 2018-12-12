@@ -1,8 +1,29 @@
 <resources>
     <string name="app_name">Popular Movies - Stage 1</string>
-    <string name="image">Movie Poster Image here</string>
-    <string name="posterImageUri">http://i.imgur.com/DvpvklR.png</string>
-    <string name="json">
+
+    <!-- Error message when there is no internet connectivity -->
+    <string name="no_internet_connection">No internet connection found.\nPlease try again later.</string>
+
+  <!-- Error message when there are no movies returned -->
+  <string name="no_movies_returned">No movies found.\nThere may be an issue with the movie service.\nPlease try again later.</string>
+
+    <string name="image">Movie Poster</string>
+
+    <string name="movieTitle">Title: </string>
+    <string name="releaseDate">Release Date: </string>
+    <string name="voteAverage">Average Vote: </string>
+    <string name="movieOverview">What it\'s about: </string>
+
+  <!-- Strings for Settings Menu -->
+  <string name="settings_menu_item">Settings</string>
+  <string name="settings_title">Movie App Settings</string>
+
+  <!-- Strings For Order-By Preference -->
+  <string name="settings_order_by_key" translatable="false">movieSort</string>
+  <string name="settings_order_by_popular" translatable="false">popular</string>
+  <string name="settings_order_by_topRated" translatable="false">top_rated</string>
+
+  <string name="json">
     { \"page\": 1, \"total_results\": 388565, \"total_pages\": 19429,
   \"results\": [
     {
