@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoaderReset(Loader<List<Movie>> loader) {
         mAdapter.mMovieList.clear();
+
     }
 
     @Override
