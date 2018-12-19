@@ -41,7 +41,8 @@ import com.example.android.popularmovies_stage1.model.Movie;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Movie>> {
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Movie>>,
+        SharedPreferences.OnSharedPreferenceChangeListener {
 
     RecyclerView mMoviePostersRecyclerView;
 
@@ -59,6 +60,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mMoviePostersRecyclerView.setHasFixedSize(false);
         GridLayoutManager mGridLayoutManager = new GridLayoutManager(this, 5);
         mMoviePostersRecyclerView.setLayoutManager(mGridLayoutManager);
+
+        // Setup reference to SharedPreferences and register to be notified of changes
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.registerOnSharedPreferenceChangeListener(this);
 
         // Get a reference to the ConnectivityManager to check state of network connectivity
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -159,4 +164,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (key.equals(getString(R.string.settings_order_by_popular)) ||
+                key.equals(getString(R.string.settings_order_by_key))) {
+            mAdapter.mMovieList.clear();
+
+            getLoaderManager().restartLoader(MOVIE_LOADER_ID, null, this);
+        }
+    }
 }
