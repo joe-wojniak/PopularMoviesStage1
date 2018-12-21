@@ -170,7 +170,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 key.equals(getString(R.string.settings_order_by_key))) {
             mAdapter.mMovieList.clear();
 
-            getLoaderManager().restartLoader(MOVIE_LOADER_ID, null, this);
+            getSupportLoaderManager().restartLoader(MOVIE_LOADER_ID, null, this);
+
         }
     }
 }
