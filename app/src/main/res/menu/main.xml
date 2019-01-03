@@ -8,6 +8,6 @@
         android:id="@+id/Settings"
         android:icon="@drawable/ic_menu_black_24dp"
         android:orderInCategory="1"
-        android:title="Sort By"
-        app:showAsAction="ifRoom" />
+        android:title="Settings"
+        app:showAsAction="never" />
 </menu>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="movie_sort_preference_labels">
-        <item>@string/settings_order_by_topRated</item>
-        <item>@string/settings_order_by_popular</item>
+        <item>@string/pref_order_label_popular</item>
+        <item>@string/pref_order_label_topRated</item>
     </string-array>
 
     <string-array name="movie_sort_preference_values">
-        <item>@string/settings_order_by_topRated</item>
-        <item>@string/settings_order_by_popular</item>
+        <item>@string/pref_order_popular_value</item>
+        <item>@string/pref_order_topRated_value</item>
     </string-array>
 </resources>

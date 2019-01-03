@@ -6,26 +6,49 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/white_space">
+        android:layout_margin="@dimen/white_space"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/detailImageView"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/image"
-            android:scaleType="centerCrop"
-            android:layout_margin="@dimen/white_space"/>
+            android:orientation="horizontal">
 
-        <TextView
+            <ImageView
+                android:id="@+id/detailImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/white_space"
+                android:contentDescription="@string/image"
+                android:scaleType="centerCrop" />
+
+            <Button
+                android:id="@+id/buttonFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_favorite" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/movieTitle" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/detailTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/movieTitle" />
+
+            <TextView
+                android:id="@+id/detailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="@dimen/large_white_space"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,7 +63,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/voteAverage" />
+            android:text="@string/vote_average" />
 
         <TextView
             android:id="@+id/detailVoteAverage"
@@ -57,5 +80,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonTrailer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/white_space"
+                android:text="@string/button_trailer" />
+
+            <TextView
+                android:layout_width="@dimen/large_white_space"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/buttonReview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/white_space"
+                android:text="@string/button_review" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
